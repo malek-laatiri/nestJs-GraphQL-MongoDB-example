@@ -1,0 +1,51 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type School {
+  _id: ID
+  name: String
+  users: [User!]
+}
+
+type User {
+  _id: ID
+  firstname: String
+  school: School
+}
+
+type Query {
+  Allusers: [User!]!
+  user(id: Int!): User!
+  Allschools: [School!]!
+  school(id: Int!): School!
+}
+
+type Mutation {
+  createUser(createUserInput: CreateUserInput!): User!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+  removeUser(id: Int!): User!
+  createSchool(createSchoolInput: CreateSchoolInput!): School!
+  updateSchool(updateSchoolInput: UpdateSchoolInput!): School!
+  removeSchool(id: Int!): School!
+}
+
+input CreateUserInput {
+  firstname: String!
+  school: String!
+}
+
+input UpdateUserInput {
+  firstname: String
+  school: String
+  id: Int!
+}
+
+input CreateSchoolInput {
+  name: String!
+}
+
+input UpdateSchoolInput {
+  name: String
+  id: Int!
+}
