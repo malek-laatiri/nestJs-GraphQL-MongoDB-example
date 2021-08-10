@@ -15,7 +15,7 @@ constructor(@InjectModel(User.name) private userModel:Model<UserDocument>){}
   }
 
   async findAll():Promise<User[]> {
-    return await this.userModel.find().populate('school').exec();
+    return await this.userModel.find().lean();
   }
 
   findOne(id: number) {
@@ -28,5 +28,10 @@ constructor(@InjectModel(User.name) private userModel:Model<UserDocument>){}
 
   remove(id: number) {
     return `This action removes a #${id} user`;
+  }
+
+  async findBySchool(id){
+    return await this.userModel.find({school:id}).lean();
+
   }
 }

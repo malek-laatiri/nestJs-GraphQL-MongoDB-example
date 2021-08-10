@@ -14,6 +14,7 @@ export class School {
   @Field(() => String,{ nullable: true })
   name: string;
   @Field(()=>[User],{nullable:true})
+  @Prop({ type: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }] })
   users:User[];
 }
 export const SchoolSchema= SchemaFactory.createForClass(School);
