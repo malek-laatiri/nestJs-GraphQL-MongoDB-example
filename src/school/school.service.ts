@@ -28,4 +28,8 @@ export class SchoolService {
   remove(id: number) {
     return `This action removes a #${id} school`;
   }
+  async findBySchool(id){
+    return await this.SchoolModel.findById(id);
+
+  }
 }
